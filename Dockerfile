@@ -1,4 +1,4 @@
-FROM php:8.1
+FROM php:8.2.0
 
 # Install dependencies
 USER root
@@ -17,9 +17,7 @@ WORKDIR /app
 COPY . .
 
 # Run Composer
-RUN composer install  --no-interaction
-
-
+RUN php /usr/local/bin/composer install --no-interaction
 
 # CMD should be specified with the full path to php and artisan
 CMD php artisan serve --host=0.0.0.0
